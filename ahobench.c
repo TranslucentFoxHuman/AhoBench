@@ -1,5 +1,5 @@
 //このプログラムには日本語が含まれます。←By this line, compilers will detect the charset.
-#define __PROGRAM_VER__ "1.0.0"
+#define __PROGRAM_VER__ "1.1.0"
 /*
  * AhoBench - A very simple benchmark program for any devices.
  * 
@@ -80,6 +80,26 @@ int get_cpucore() {
     #endif
 }
 
+unsigned long long get_best(unsigned long long* scores,int core_count) {
+    unsigned long long resval = scores[0];
+    for (int i=1;i<core_count;i++) {
+        if (resval < scores[i]) {
+            resval = scores[i];
+        }
+    }
+    return resval;
+}
+
+unsigned long long get_worst(unsigned long long* scores,int core_count) {
+    unsigned long long resval = scores[0];
+    for (int i=1;i<core_count;i++) {
+        if (resval > scores[i]) {
+            resval = scores[i];
+        }
+    }
+    return resval;
+}
+
 void print_help(char *progcmd) {
     printf ("AhoBench C version %s\n"
             "\n"
@@ -139,6 +159,10 @@ int main(int argc,char** argv) {
 
     if(cores == 0) {
         cores = get_cpucore();
+        if (cores == 0) {
+            fprintf(stderr,"Error: Failed to get the number of threads. Please specify the number of threads manually with -j option.");
+            return 3;
+        }
     }
 
     thread_list = (pthread_t*)malloc(sizeof(pthread_t)*cores);
@@ -165,11 +189,15 @@ int main(int argc,char** argv) {
     pthread_join(timerThreadID,NULL);
     for (int i=0;i<cores;i++) {
         pthread_join(thread_list[i],NULL);
-        printf("Thread %d    : %llu\n",i,score_list[i]);
+        printf("Thread %d     : %llu\n",i,score_list[i]);
         score += score_list[i];
     }
 
-    printf("Total score : %llu\n",score);
+    printf("\n"
+           "Worst score   : %llu\n"
+           "Best score    : %llu\n"
+           "Average score : %llu\n"
+           "Total score   : %llu\n",get_worst(score_list,cores),get_best(score_list,cores),score/cores,score);
 
     return 0;
 }

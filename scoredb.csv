@@ -1,0 +1,11 @@
+Architecture Vendor CPU/SoC "Core name" Threads Worst Best Average Total Note
+aarch64 Allwinner H618 Cortex-A53 4 21147315 21782738 21569836 86279344 
+aarch64 Google "Tensor (Pixel 6a)" Cortex-X1/A76/A55 8 4372349 5057201 4679360 37434880 "It is under the Android battery limit."
+aarch64 MediaTek MT7981B Cortex-A53 2 6625376 6819075 6722226 13444451 
+aarch64 Qualcomm "Snapdragon 8 Gen 1" Cortex-X2/A710/A510 8 3593941 3934906 3799414 30395318 "It is under the Android battery limit. Performance on non-Root devices tends to decline."
+mipsel MediaTek MT7620A MIPS24KEc 1 965681 965681 965681 965681 
+x86_64 Intel "Core i3-9100F"  4 142446059 148418402 144985449 579941798 
+x86_64 Intel "Core i5-4210U"  4 48208545 67394303 58570773 234283091 
+x86_64 Intel "Core i7-860"  8 57082101 70691567 62897699 503181592 
+x86_64 Intel "Core i7-2600"  8 83718965 93337787 89252772 714022180 
+x86_64 Intel "Xeon E3-1220 v3"  4 104994199 113706191 110675489 442701959 

@@ -36,6 +36,7 @@ Options:
 ### CPU
 - x86_64
 - aarch64
+- mipsel
 
 ## Basic Concept of the Algorithm
 This benchmark is based on the fundamental concept that **string manipulation is often a difficult task for computers**. In other words, it performs a large amount of string manipulation to benchmark performance.
@@ -94,3 +95,18 @@ Since string manipulation is a task that humans find easy but computers find dif
 
 ## License
 This program is provided under the GNU General Public License version 3 or later. For details, see the COPYING file or <https://www.gnu.org/licenses/>.
+
+## scoredb.csv
+This file contains a database of AhoBench scores for various CPUs.
+
+For each processor, it lists the lowest single‑core score, the highest single‑core score, the average score per single core, and the total score across all cores.  
+For processors such as ARM that are conventionally referred to by their SoC name rather than the CPU name, both the SoC name and the core name it contains are listed.  
+If there are any special notes about a score, they are recorded in the “Note” column. For example, scores measured on Android may be lower than the processor’s true performance due to Android’s battery‑saving limits, and this is noted here.
+
+If you benchmark a processor that is not listed in AhoBench, please feel free to add its score and processor information to this file and submit a merge request! Merge requests are accepted on both GitHub and GitLab.  
+When running benchmarks to add to this file, please follow these conditions:
+
+- Run the benchmark at least three times and verify that the values do not vary significantly. If the value changes drastically each time you run it, something may be interfering with the benchmark (e.g., a background process). Resolve that first before measuring.
+- Whenever possible, measure in a lightweight environment. Avoid heavy OSes such as Windows or macOS unless absolutely necessary. In GNU/Linux, the initrd environment with minimal background processes is preferable. If you must use a heavy OS or an OS that limits program execution (e.g., a special OS like Android), note that in the special notes column.
+- Sort the CSV contents in ascending order based on the priority of the columns: “Architecture”, “Vendor”, then “CPU/SoC”. Use natural sorting rather than dictionary order. (LibreOffice Calc provides dialog options for these settings. LibreOffice Calc is strongly recommended for this task.)
+- Use the architecture names listed on [https://www.debian.org/ports/](https://www.debian.org/ports/) (e.g., mipsel, ppc64el, etc.). However, for amd64 and arm64, because the names are similar and easily confused, use “x86_64” and “aarch64” respectively. AhoBench is a benchmark of "Aho" by "Aho" for "Aho", so it should be readable for "Aho".

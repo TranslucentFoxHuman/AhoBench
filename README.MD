@@ -29,6 +29,7 @@ Options:
 - Debian 13
 - Cygwin on Windows 11
 - Android
+- OpenWRT
 - macOS 26 Tahoe (x86_64)  
   On macOS, the `nproc` command is missing, so it cannot detect the number of threads on the device. Please use the `-j` option to explicitly specify the thread count.
 

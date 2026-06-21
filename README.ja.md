@@ -30,6 +30,7 @@ Options:
 - Debian 13
 - Cygwin on Windows 11
 - Android
+- OpenWRT
 - macOS 26 Tahoe (x86_64)  
   macOSでは`nproc`コマンドが欠落しているため、デバイスのスレッド数を検出出来ません。`-j`オプションを使用して、明示的にスレッド数を指定してください。
 

@@ -30,6 +30,7 @@ Options:
 - Cygwin on Windows 11
 - Android
 - OpenWRT
+- Mac OS X 10.2
 - macOS 26 Tahoe (x86_64)  
   On macOS, the `nproc` command is missing, so it cannot detect the number of threads on the device. Please use the `-j` option to explicitly specify the thread count.
 
@@ -37,6 +38,7 @@ Options:
 - x86_64
 - aarch64
 - mipsel
+- powerpc
 
 ## Basic Concept of the Algorithm
 This benchmark is based on the fundamental concept that **string manipulation is often a difficult task for computers**. In other words, it performs a large amount of string manipulation to benchmark performance.
@@ -60,6 +62,15 @@ BakaBench measures performance by continuously adding 1. As a result, increasing
 This happens because the algorithm is too simple—particularly on CPUs with pipelines, it can perform many iterations, and there are few difference in processing methods to process such simple work between old and new CPUs. So it was advantageous to simply process with a large number of cores.
 
 In contrast, AhoBench processes a slightly more complex (yet still simple for humans) algorithm. As a result, unlike BakaBench, it can perform a practical benchmark and can be used as a usable benchmarking tool rather than just a toy.
+
+## ahobench-legacy_osx.c
+This version targets a very old Mac OS X.
+
+The program retrieves time with nanosecond precision in order to obtain a more accurate measurement. However, on very old Mac OS X systems the POSIX‑standard functions for retrieving nanoseconds are not available. Therefore, this version uses a Mac OS X‑specific API to obtain nanoseconds.
+
+The only difference between this version and the standard one is the method of fetching nanoseconds; the algorithm itself is identical. Consequently, it should be possible to compare the performance of this version against the regular one.
+
+On very old Macintosh machines with PowerPC processors, especially those with Old‑World ROMs, running GNU/Linux can be extremely difficult. By compiling this version on it, you can perform benchmarks directly on the legacy Mac OS X without the need to install GNU/Linux.
 
 ## Q&A
 ### Is the algorithm really practical?

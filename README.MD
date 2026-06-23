@@ -90,6 +90,10 @@ To perform the comparison, calculate as follows:
   ((ahobench.c on new machine) / (AHBCDOS.C on new machine))
 ```
 
+This ratio is around 0.4 on many processors. While the ratio may vary depending on the processor, for this benchmark I set the conversion factor from the AHBCDOS version score to the standard version score at 0.4.
+
+When you write scores which write the value obtained by multiplying the AHBCDOS version score by 0.4  as the standard version score. Also, add the following note: ***The scores are calculated by multiplying the DosVer score by 0.4.***
+
 
 ## Q&A
 ### Is the algorithm really practical?

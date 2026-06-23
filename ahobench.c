@@ -1,5 +1,5 @@
 //このプログラムには日本語が含まれます。←By this line, compilers will detect the charset.
-#define __PROGRAM_VER__ "1.1.0"
+#define __PROGRAM_VER__ "1.1.2"
 /*
  * AhoBench - A very simple benchmark program for any devices.
  * 
@@ -101,7 +101,7 @@ unsigned long long get_worst(unsigned long long* scores,int core_count) {
 }
 
 void print_help(char *progcmd) {
-    printf ("AhoBench C version %s\n"
+    printf ("AhoBench %s\n"
             "\n"
             "Usage:\n"
             "%s [-j <THREADS>] [-d <DURATION>]\n"
@@ -113,7 +113,7 @@ void print_help(char *progcmd) {
 }
 
 void print_ver() {
-    printf("Bakabench C\nVersion : %s\n\n"
+    printf("AhoBench C\nVersion : %s\n\n"
            "Copyrignt (C) 2026 TLFoxHuman (TlFoxHuman, TranslucentFoxHuman, 半狐, 半透明狐人間)\n\n"
            "This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n"
 			"\n"
@@ -160,7 +160,7 @@ int main(int argc,char** argv) {
     if(cores == 0) {
         cores = get_cpucore();
         if (cores == 0) {
-            fprintf(stderr,"Error: Failed to get the number of threads. Please specify the number of threads manually with -j option.");
+            fprintf(stderr,"Error: Failed to get the number of threads. Please specify the number of threads manually with -j option.\n");
             return 3;
         }
     }

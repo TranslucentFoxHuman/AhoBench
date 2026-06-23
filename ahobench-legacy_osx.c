@@ -1,4 +1,4 @@
-#define __PROGRAM_VER__ "1.1.0-legacy_osx"
+#define __PROGRAM_VER__ "1.1.2-legacy_osx"
 /*
  * AhoBench - A very simple benchmark program for any devices.
  * 
@@ -171,7 +171,7 @@ int main(int argc,char** argv) {
     if(cores == 0) {
         cores = get_cpucore();
         if (cores == 0) {
-            fprintf(stderr,"Error: Failed to get the number of threads. Please specify the number of threads manually with -j option.");
+            fprintf(stderr,"Error: Failed to get the number of threads. Please specify the number of threads manually with -j option.\n");
             return 3;
         }
     }

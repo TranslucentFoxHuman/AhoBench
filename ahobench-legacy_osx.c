@@ -187,7 +187,6 @@ int main(int argc,char** argv) {
             "Duration : %d\n\n",__PROGRAM_VER__,cores,duration);
 
     // Start benchmark 
-    clock_gettime(CLOCK_MONOTONIC, &ts);
     end_time = monotonic_ns() + (1000000000ull * (unsigned long long)duration);
 
     for (int i=0;i<cores;i++) {

@@ -72,6 +72,25 @@ The only difference between this version and the standard one is the method of f
 
 On very old Macintosh machines with PowerPC processors, especially those with Old‑World ROMs, running GNU/Linux can be extremely difficult. By compiling this version on it, you can perform benchmarks directly on the legacy Mac OS X without the need to install GNU/Linux.
 
+## AHBCDOS.C
+
+This version is aimed at very old environments that can run only old OSes such as MS‑DOS. It is designed to be compiled with legacy compilers that only support C89.   
+This can even perform benchmarks on older systems that cannot run a modern Unix OSes.
+
+This version uses a different time‑measurement method and employs an `int` (instead of an `unsigned long long`) for the variable that accumulates the score, so its scores are not compatible with the standard version.
+
+### Comparing the score of the AHBCDOS.C version with the regular version
+
+The AHBCDOS.C version can also run on modern environments. Therefore, you can compare the processing capabilities of old versus new environments by using the single‑core score of the regular version run on a recent machine together with the score of the AHBCDOS.C version.
+
+To perform the comparison, calculate as follows:
+
+```
+(AHBCDOS.C on old machine) *
+  ((ahobench.c on new machine) / (AHBCDOS.C on new machine))
+```
+
+
 ## Q&A
 ### Is the algorithm really practical?
 I believe it is. There are two reasons:

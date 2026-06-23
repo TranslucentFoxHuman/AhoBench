@@ -130,6 +130,8 @@ This program is provided under the GNU General Public License version 3 or later
 This file contains a database of AhoBench scores for various CPUs.
 
 For each processor, it lists the lowest single‑core score, the highest single‑core score, the average score per single core, and the total score across all cores.  
+The benchmark scores using AHBCDOS.C are listed in the DosVer column.
+
 For processors such as ARM that are conventionally referred to by their SoC name rather than the CPU name, both the SoC name and the core name it contains are listed.  
 If there are any special notes about a score, they are recorded in the “Note” column. For example, scores measured on Android may be lower than the processor’s true performance due to Android’s battery‑saving limits, and this is noted here.
 
